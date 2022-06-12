@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalhes</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+<div>
+  <nav class="navbar bg-primary p-3 my-3 border">
+    <div class="container-fluid">
+      <a class="navbar-brand  fw-bold h1">
+        <h1>Descrição</h1>
+      </a>
+      <div>
+        <a href="home">
+          <button class="btn btn-primary" type="button">
+            <span class="material-symbols-outlined" hrf="home">home</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div th:if="${filmes}"class="container p-3 my-3 shadow-lg border">
+    <h3 th:text="*{filmes.titulo}"></h3>
+    <ul class="list-group list-group-flush">
+      <li th:text="${filmes.descricao}"  class="list-group-item"><p>Descrição</p></li>
+      <li th:each="genero: ${filmes.generos}"  th:text="${genero.tipo}" class="list-group-item">Genero</li>
+      <li th:text="${filmes.anoProducao}"  class="list-group-item">Ano de Lançamento</li>
+      <li th:text="${filmes.estudios.nome}" class="list-group-item">Estudio</li>
+      <div th:each="diretor: ${filmes.diretores}" >
+        <li  th:text="${diretor.nome}+${diretor.sobrenome}"class="list-group-item"></li>
+      </div>
+      <div th:each="autor: ${filmes.autores}">
+        <li th:text="${autor.nome}+${autor.sobrenome}"class="list-group-item"></li>
+      </div>
+    </ul>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
