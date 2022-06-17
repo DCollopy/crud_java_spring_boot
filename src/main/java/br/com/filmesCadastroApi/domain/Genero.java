@@ -1,4 +1,4 @@
-package br.com.filmesCadastroApi.model;
+package br.com.filmesCadastroApi.domain;
 
 import lombok.Data;
 
@@ -6,8 +6,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.util.Set;
-
-import static javax.persistence.CascadeType.ALL;
 
 @Data
 @Entity
@@ -20,7 +18,10 @@ public class Genero implements Serializable {
     @Column(length = 100)
     private String tipo;
 
-    @ManyToMany(cascade = ALL)
+    @ManyToMany(cascade =CascadeType.PERSIST)
     private Set<Filmes> filmes;
-
+    public Genero(long id) {
+        this.id = id;
+    }
+    public Genero() {}
 }

@@ -1,6 +1,5 @@
-package br.com.filmesCadastroApi.model;
+package br.com.filmesCadastroApi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.Embeddable;
 import java.io.Serializable;

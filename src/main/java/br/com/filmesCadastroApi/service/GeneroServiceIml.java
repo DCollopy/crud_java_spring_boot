@@ -1,6 +1,6 @@
 package br.com.filmesCadastroApi.service;
 
-import br.com.filmesCadastroApi.model.Genero;
+import br.com.filmesCadastroApi.domain.Genero;
 import br.com.filmesCadastroApi.repository.GeneroRepository;
 import org.springframework.stereotype.Service;
 

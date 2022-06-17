@@ -24,20 +24,39 @@
       </div>
     </div>
   </nav>
-  <div th:if="${filmes}"class="container p-3 my-3 shadow-lg border">
-    <h3 th:text="*{filmes.titulo}"></h3>
-    <ul class="list-group list-group-flush">
-      <li th:text="${filmes.descricao}"  class="list-group-item"><p>Descrição</p></li>
-      <li th:each="genero: ${filmes.generos}"  th:text="${genero.tipo}" class="list-group-item">Genero</li>
-      <li th:text="${filmes.anoProducao}"  class="list-group-item">Ano de Lançamento</li>
-      <li th:text="${filmes.estudios.nome}" class="list-group-item">Estudio</li>
-      <div th:each="diretor: ${filmes.diretores}" >
-        <li  th:text="${diretor.nome}+${diretor.sobrenome}"class="list-group-item"></li>
+  <div  th:if="${filmes}" class="container">
+    <div class="card">
+      <h5 class="card-header" >Filme Criado com sucesso!!</h5>
+      <div class="card-body">
+        <h5 class="card-title" th:text="*{filmes.titulo}">Nome do filme</h5>
+        <p class="card-text" th:text="*{filmes.titulo}"><span>Titulo</span> Nome</p>
+        <p class="card-text" th:text="*{filmes.descricao}"><span>Descrição</span> Nome</p>
+        <p class="card-text" th:text="*{filmes.anoProducao}"><span>Ano de Lançamento</span> Nome</p>
+        <p class="card-text" th:each="genero: ${filmes.generos}"  th:text="${genero.tipo}"><span>Genero</span> Nome</p>
+        <p class="card-text" th:text="*{filmes.estudios.nome}"><span>Estudios</span> Nome</p>
       </div>
-      <div th:each="autor: ${filmes.autores}">
-        <li th:text="${autor.nome}+${autor.sobrenome}"class="list-group-item"></li>
+    </div>
+
+    <div class="row  my-2">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Elenco</h5>
+            <p class="card-text" th:each="autor : ${autores}" th:text="${autor.nome}+${autor.sobrenome}">Nome</p>
+            <a href="../perfil/perfil" th:href="@{../perfil/perfil/autor(id=${filmes.id})}" methods="get" class="btn btn-primary">Adicione autor</a>
+          </div>
+        </div>
       </div>
-    </ul>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Diretor</h5>
+            <p class="card-text" th:each="diretor: ${filmes.diretores}" th:text="${diretor.nome}+${diretor.sobrenome}">Nome</p>
+            <a href="../perfil/perfil" th:href="@{../perfil/perfil/diretor(id=${filmes.id})}" methods="get"  class="btn btn-primary">Adicione diretor</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -1,36 +1,41 @@
-package br.com.filmesCadastroApi.model;
-
-import org.springframework.format.annotation.DateTimeFormat;
+package br.com.filmesCadastroApi.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
-import static javax.persistence.CascadeType.ALL;
 
 @Entity
 public class Filmes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 100,nullable = false)
+    @Column(length = 100, nullable = false)
     private String titulo;
     @Column(length = 500)
     private String descricao;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+
     private LocalDate anoProducao;
 
     @Embedded
     private Estudio estudios;
-    @ManyToMany(cascade = ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Genero> generos;
     @Embedded
     private Avaliacao avaliacoes;
-    @ManyToMany(cascade = ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Diretor> diretores;
-    @ManyToMany(cascade = ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Autor> autores;
 
+    public Filmes(Autor autor) {
+    }
+
+    public Filmes() {
+    }
+
+    public Filmes(long id) {
+    }
 
     public long getId() {
         return id;
@@ -103,4 +108,11 @@ public class Filmes implements Serializable {
     public void setAutores(Set<Autor> autores) {
         this.autores = autores;
     }
+
+    public void setAutores(String nome, String sobrenome) {
+    }
+
+    public void getAutores(String nome, String sobrenome) {
+    }
+
 }

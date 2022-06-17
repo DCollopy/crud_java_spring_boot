@@ -1,4 +1,4 @@
-package br.com.filmesCadastroApi.model;
+package br.com.filmesCadastroApi.domain;
 
 
 import lombok.Data;
@@ -10,4 +10,8 @@ import java.io.Serializable;
 public class Avaliacao implements Serializable {
     private int pontos;
 
+    public Avaliacao(int pontos) {
+        this.pontos = pontos;
+    }
+    protected Avaliacao(){}
 }
