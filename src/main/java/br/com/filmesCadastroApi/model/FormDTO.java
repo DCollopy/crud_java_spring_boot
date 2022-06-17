@@ -3,8 +3,6 @@ package br.com.filmesCadastroApi.model;
 import br.com.filmesCadastroApi.domain.*;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,17 +42,21 @@ public class FormDTO {
         return diretores;
     }
 
-    public Set<Genero> genero(long id){
+    public Set<Genero> generoId(long id){
         Set<Genero> generos = new HashSet<>();
         Genero gen = new Genero(id);
 
         generos.add(gen);
         return generos;
     }
+    public Set<Genero> generoTipo(String tipo){
+        Set<Genero> generos = new HashSet<>();
+        Genero gen = new Genero(tipo);
 
-    public LocalDate formatarData(String anoProducao){
-
-        return LocalDate.parse(anoProducao, DateTimeFormatter.ISO_DATE);
+        generos.add(gen);
+        return generos;
     }
+
+
 
 }

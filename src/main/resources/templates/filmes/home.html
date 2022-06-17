@@ -24,7 +24,6 @@
                     <th scope="col">Titulo</th>
                     <th scope="col">Genero</th>
                     <th scope="col">Ano Lançamento</th>
-                    <th scope="col">Avaliação</th>
                 </tr>
                 </thead>
                 <tbody th:each="filme : ${filmes}" >
@@ -32,7 +31,6 @@
                     <th th:text="${filme.titulo}" scope="row"></th>
                     <td th:each="genero: ${filme.generos}"  th:text="${genero.tipo}"></td>
                     <td th:text="${filme.anoProducao}"></td>
-                    <td th:text="${filme.avaliacoes.pontos}"></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <a  href="detalhes.html" th:href="@{detalhes(id=${filme.id})}" methods="get">

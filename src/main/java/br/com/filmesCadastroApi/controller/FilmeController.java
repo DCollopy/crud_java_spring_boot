@@ -51,12 +51,12 @@ public class FilmeController {
     public String salve(@ModelAttribute FormDTO formDTO, Model model) {
         model.addAttribute("add", true);
         filmeService.saveAllMovies(formDTO);
-        return "redirect:filmes/home";
+        return "filmes/home";
     }
 
     @GetMapping("/edite{id}")
     public String edite(@RequestParam(required = false)
-                            @PathVariable Long id, Model model) {
+                        @PathVariable Long id, Model model) {
         model.addAttribute("add", false);
         FormDTO formDTO = new FormDTO();
         formDTO.setId(id);
@@ -75,7 +75,7 @@ public class FilmeController {
     }
     @GetMapping("/delete{id}")
     public String deleteFilme(@RequestParam(required = false)
-                                @PathVariable("id") Long id) {
+                              @PathVariable("id") Long id) {
         Set<Filmes> filmesId = filmeService.findMovieId(id);
         for (Filmes filme: filmesId) {
             filmeService.delete(filme);

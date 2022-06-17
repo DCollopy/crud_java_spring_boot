@@ -24,4 +24,8 @@ public class Genero implements Serializable {
         this.id = id;
     }
     public Genero() {}
+
+    public Genero(String tipo) {
+        this.tipo = tipo;
+    }
 }
