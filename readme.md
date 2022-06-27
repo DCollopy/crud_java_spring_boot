@@ -9,9 +9,6 @@
         - bootstrap
 
     - Padrão de projeto
-        - MVC
-            O MVC é uma sigla do termo em inglês Model (modelo) View (visão) e Controller (Controle) que 
-            facilita a troca de informações entre a interface do usuário aos dados no banco, fazendo com que as respostas sejam mais rápidas e dinâmicas
         - Design Patterns  DTO - Objeto de Transferencia de Dados
             A sua função é obter e armazenar dados. Quando estamos trabalhando com uma interface remota, 
             cada chamada ao servidor pode custar muito tempo de processamento, a depender da quantidade 
